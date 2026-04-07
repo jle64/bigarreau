@@ -9,43 +9,32 @@ set -ouex pipefail
 systemctl enable \
     apparmor.service \
     bluetooth.service \
-    brew-setup.service \
     cups-browsed.service \
     cups.socket \
     firewalld.service \
     greetd.service \
-    kdeconnect-firewalld-bypass.service \
     NetworkManager.service \
     polkit.service \
-    incrond.service \
     rechunker-group-fix.service \
     refresh-font-cache.service \
     tuned-ppd.service \
     tuned.service \
-    usr-share-tartaria-cherries.mount \
-    uupd.timer \
-    pick-cherries.timer
+    uupd.timer
 
 # system-preset
 systemctl preset \
-    systemd-resolved.service \
-    kdeconnect-firewalld-bypass.service
+    systemd-resolved.service
 
 # user
 systemctl --global enable \
-    chezmoi-init.service \
-    chezmoi-update.timer \
     flathub-user.service \
     noctalia-shell.service \
     opentabletdriver.service \
-    udiskie.service \
     subsystem.service \
     wl-clip-persist.service
     
 # user-preset
 systemctl preset --global \
-    chezmoi-init.service \
-    chezmoi-update.timer \
     flathub-user.service \
     noctalia-shell.service \
     udiskie.service \
@@ -54,5 +43,4 @@ systemctl preset --global \
 
 # user-wants for Niri
 systemctl add-wants --global niri.service \
-    noctalia-shell.service \
-    udiskie.service
+    noctalia-shell.service
