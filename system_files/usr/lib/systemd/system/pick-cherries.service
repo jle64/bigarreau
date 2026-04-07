@@ -1,9 +1,0 @@
-[Unit]
-Description=Update global chezmoi repository
-After=var.mount
-BindsTo=var.mount network-online.target
-
-[Service]
-Type=oneshot
-ExecStart=/usr/libexec/update-cherries
-RemainAfterExit=false
