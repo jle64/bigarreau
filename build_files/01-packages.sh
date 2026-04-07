@@ -35,13 +35,12 @@ declare -a packages=(
     less
     lsof
     man-db
-    nano
+    neovim
     openssh
     powertop
     python3
     tar
     unzip
-    vim
     wget
 
     # ========> filesystems
@@ -108,14 +107,10 @@ declare -a packages=(
     nss-mdns
     samba
     smbclient
-    udiskie
     udisks2
 
     # ========> containers
     distrobox
-    docker
-    docker-buildx
-    docker-compose
     flatpak
     podman
     podman-compose
@@ -160,21 +155,18 @@ declare -a packages=(
     chaotic-aur/matugen-git
     chaotic-aur/noctalia-shell
     chaotic-aur/opentabletdriver
-    chezmoi
     cliphist
-    dgop
-    espeak-ng
     evolution-data-server
     glycin
     gnome-keyring
     greetd
+    greetd-agreety
     greetd-regreet
-    incron
     libappindicator
     niri
     orca
     orchis-theme
-    polkit-kde-agent
+    polkit-gnome
     quickshell
     shared-mime-info
     tuned
@@ -187,31 +179,19 @@ declare -a packages=(
     xdg-utils
 
     # ========> applications
-    ark
     chaotic-aur/bazaar-git
     chaotic-aur/distroshelf
-    chaotic-aur/qt6ct-kde
     chaotic-aur/valent-git
-    chaotic-aur/zen-browser-bin
     cachyos/scx-manager
     cachyos/scx-scheds
-    decibels
-    frameworkintegration
-    gnome-calculator
-    gnome-calendar
-    gnome-music
+    file-roller
     gnome-text-editor
-    gnome-weather
     gpu-screen-recorder
     hplip
     impression
     kitty
-    loupe
     mission-center
     nautilus
-    papers
-    secrets
-    showtime
     sysprof
 )
 
