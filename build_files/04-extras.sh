@@ -29,10 +29,6 @@ bash ./install.sh -t grey -n default-icons -d /usr/share/icons
 cd ..
 rm -rf MacTahoe-icon-theme
 
-# set default niri config
-install -d /etc/niri/
-ln -sT /usr/share/tartaria/cherries/dot_config/niri/config.kdl /etc/niri/config.kdl
-
 # apply gschema overrides
 glib-compile-schemas /usr/share/glib-2.0/schemas
 
