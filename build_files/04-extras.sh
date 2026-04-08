@@ -16,9 +16,6 @@ sed -i 's/bgrt/red_loader/g' /usr/share/plymouth/plymouthd.defaults
 # remove any .pacnew files
 find /etc/ -name "*.pacnew" -type f -delete
 
-# disable uupd distrobox updates
-sed -i 's|uupd|& --disable-module-distrobox|' /usr/lib/systemd/system/uupd.service
-
 # pick random gender flag and set it as default face
 cp "/usr/share/tartaria/faces/face-$(shuf -i 1-10 -n 1).png" /usr/share/tartaria/faces/default-face.png
 
@@ -35,5 +32,8 @@ glib-compile-schemas /usr/share/glib-2.0/schemas
 # move /opt into /usr so it gets preserved
 rm -rf /usr/opt
 mv /opt /usr
+
+# create /nix mountpoint to facilitate nix installs
+mkdir /nix
 
 echo "::endgroup::"

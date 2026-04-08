@@ -29,17 +29,13 @@ systemctl preset \
 systemctl --global enable \
     flathub-user.service \
     noctalia-shell.service \
-    opentabletdriver.service \
-    subsystem.service \
-    wl-clip-persist.service
+    opentabletdriver.service
     
 # user-preset
 systemctl preset --global \
     flathub-user.service \
     noctalia-shell.service \
-    udiskie.service \
-    subsystem.service \
-    wl-clip-persist.service
+    subsystem.service
 
 # user-wants for Niri
 systemctl add-wants --global niri.service \

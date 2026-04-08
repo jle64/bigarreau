@@ -9,7 +9,7 @@ declare -a packages=(
     # ========> system
     base
     bootc/uupd
-    cachyos/linux-cachyos
+    cachyos/linux-cachyos-nvidia-open
     chaotic-aur/bootc
     cpio
     dbus
@@ -28,6 +28,7 @@ declare -a packages=(
     bash-completion
     binutils
     curl
+    fish
     gcc
     git
     glibc-locales
@@ -167,11 +168,9 @@ declare -a packages=(
     orca
     orchis-theme
     polkit-gnome
-    quickshell
     shared-mime-info
     tuned
     tuned-ppd
-    wl-clip-persist
     wlsunset
     xdg-desktop-portal
     xdg-desktop-portal-gnome
@@ -188,7 +187,6 @@ declare -a packages=(
     gnome-text-editor
     gpu-screen-recorder
     hplip
-    impression
     kitty
     mission-center
     nautilus
@@ -196,4 +194,3 @@ declare -a packages=(
 )
 
 pacman -Sy --noconfirm "${packages[@]}" >/dev/null
-pacman -U --noconfirm /packages/mainsys/*.pkg.tar.zst >/dev/null

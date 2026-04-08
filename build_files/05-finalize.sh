@@ -13,7 +13,8 @@ DRACUT_NO_XATTR=1 dracut --force --no-hostonly --reproducible --zstd --verbose -
 ## see https://bootc-dev.github.io/bootc/filesystem.html
 
 # clear tempfiles
-rm -rf /tmp/* /run/*
+rm -rf /tmp/*
+#/run/*
 
 # remove target directories
 rm -rf /{boot,home,root,srv,mnt,var,usr/local}
