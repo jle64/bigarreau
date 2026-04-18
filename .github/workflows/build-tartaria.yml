@@ -1,5 +1,5 @@
 ---
-name: Build Tartaria
+name: Build Bigarreau
 on:
   pull_request:
     branches:
@@ -39,7 +39,7 @@ concurrency:
 
 jobs:
   build_push:
-    name: Build Tartaria
+    name: Build Bigarreau
     runs-on: ubuntu-24.04
 
     permissions:
