@@ -32,14 +32,17 @@ declare -a packages=(
     gcc
     git
     glibc-locales
+    inetutils
     jq
     less
     lsof
     man-db
     neovim
+    nix
     openssh
     powertop
     python3
+    sudo
     tar
     unzip
     wget
