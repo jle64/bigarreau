@@ -34,8 +34,7 @@ systemctl --global enable \
 # user-preset
 systemctl preset --global \
     flathub-user.service \
-    noctalia-shell.service \
-    subsystem.service
+    noctalia-shell.service
 
 # user-wants for Niri
 systemctl add-wants --global niri.service \
