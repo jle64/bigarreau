@@ -112,6 +112,7 @@ declare -a packages=(
     nss-mdns
     samba
     smbclient
+    tailscale
     udisks2
 
     # ========> containers
