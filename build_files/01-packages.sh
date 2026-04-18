@@ -167,7 +167,7 @@ declare -a packages=(
     gnome-keyring
     greetd
     greetd-agreety
-    greetd-regreet
+    greetd-tuigreet
     libappindicator
     niri
     orca
@@ -191,7 +191,6 @@ declare -a packages=(
     file-roller
     gnome-text-editor
     gpu-screen-recorder
-    hplip
     kitty
     mission-center
     nautilus
