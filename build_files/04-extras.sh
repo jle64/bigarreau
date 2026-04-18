@@ -33,7 +33,4 @@ glib-compile-schemas /usr/share/glib-2.0/schemas
 rm -rf /usr/opt
 mv /opt /usr
 
-# create /nix mountpoint to facilitate nix installs
-mkdir /nix
-
 echo "::endgroup::"
