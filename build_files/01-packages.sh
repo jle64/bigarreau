@@ -36,6 +36,7 @@ declare -a packages=(
     jq
     less
     lsof
+    lurk
     man-db
     neovim
     nix
