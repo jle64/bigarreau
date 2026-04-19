@@ -18,6 +18,7 @@ sed -i \
     -e "/= *\/var/ s/^#//" \
     -e "s@= */var@= /usr/lib/sysimage@g" \
     -e "/DownloadUser/d" \
+    -e "/^NoExtract/d" \
     /etc/pacman.conf
 
 # init keys
