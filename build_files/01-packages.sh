@@ -39,6 +39,7 @@ declare -a packages=(
     lurk
     man-db
     man-pages
+    man-pages-utils
     neovim
     nix
     openssh
