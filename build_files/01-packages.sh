@@ -38,6 +38,7 @@ declare -a packages=(
     lsof
     lurk
     man-db
+    man-pages
     neovim
     nix
     openssh
