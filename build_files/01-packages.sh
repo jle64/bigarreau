@@ -126,6 +126,7 @@ declare -a packages=(
     # ========> media
     ffmpeg
     ffmpegthumbs
+    ffmpegthumbnailer
     gst-libav
     gst-plugins-bad
     gst-plugins-base
@@ -159,7 +160,6 @@ declare -a packages=(
     archlinux-xdg-menu
     brightnessctl
     chaotic-aur/bibata-cursor-theme
-    chaotic-aur/darkly-qt6-git
     chaotic-aur/matugen-git
     chaotic-aur/noctalia-shell
     chaotic-aur/opentabletdriver
@@ -173,7 +173,6 @@ declare -a packages=(
     libappindicator
     niri
     orca
-    orchis-theme
     polkit-gnome
     shared-mime-info
     tuned
@@ -185,6 +184,7 @@ declare -a packages=(
     xdg-utils
 
     # ========> gpu
+    cuda
     switcheroo
     switcheroo-control
 
@@ -198,9 +198,7 @@ declare -a packages=(
     gnome-text-editor
     gpu-screen-recorder
     kitty
-    mission-center
     nautilus
-    sysprof
 )
 
 pacman -Sy --noconfirm "${packages[@]}" >/dev/null
