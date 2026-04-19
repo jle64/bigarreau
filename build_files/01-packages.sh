@@ -184,6 +184,10 @@ declare -a packages=(
     xdg-user-dirs
     xdg-utils
 
+    # ========> gpu
+    switcheroo
+    switcheroo-control
+
     # ========> applications
     chaotic-aur/bazaar-git
     chaotic-aur/distroshelf
