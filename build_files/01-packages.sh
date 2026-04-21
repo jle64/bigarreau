@@ -174,6 +174,7 @@ declare -a packages=(
     niri
     orca
     polkit-gnome
+    python-pywal
     shared-mime-info
     tuned
     tuned-ppd
