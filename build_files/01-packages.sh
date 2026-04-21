@@ -65,6 +65,7 @@ declare -a packages=(
     nilfs-utils
     ntfs-3g
     udftools
+    udisks2
     xfsprogs
 
     # ========> hardware
@@ -115,7 +116,6 @@ declare -a packages=(
     samba
     smbclient
     tailscale
-    udisks2
 
     # ========> containers
     distrobox
@@ -181,10 +181,10 @@ declare -a packages=(
     xdg-desktop-portal
     xdg-desktop-portal-gnome
     xdg-user-dirs
+    chaotic-aur/xdg-terminal-exec-git
     xdg-utils
 
     # ========> gpu
-    cuda
     switcheroo
     switcheroo-control
 
