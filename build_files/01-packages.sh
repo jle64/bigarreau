@@ -36,7 +36,6 @@ declare -a packages=(
     jq
     less
     lsof
-    lurk
     man-db
     man-pages
     man-pages-utils
@@ -45,6 +44,7 @@ declare -a packages=(
     openssh
     powertop
     python3
+    strace
     sudo
     tar
     unzip
@@ -174,7 +174,6 @@ declare -a packages=(
     niri
     orca
     polkit-gnome
-    python-pywal
     shared-mime-info
     tuned
     tuned-ppd
