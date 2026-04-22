@@ -93,6 +93,7 @@ declare -a packages=(
     # ========> display & graphics
     mesa
     mesa-utils
+    sunshine
     wayland-utils
     xwayland-satellite
 
