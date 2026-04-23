@@ -95,6 +95,7 @@ declare -a packages=(
     mesa-utils
     sunshine
     wayland-utils
+    waypipe
     wayvr-git
     xwayland-satellite
 
