@@ -95,6 +95,7 @@ declare -a packages=(
     mesa-utils
     sunshine
     wayland-utils
+    wayvr-git
     xwayland-satellite
 
     # ========> audio
