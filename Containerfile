@@ -13,6 +13,8 @@ RUN --mount=type=tmpfs,dst=/tmp \
     bash /build/03-extras.sh && \
     bash /build/04-finalize.sh
 
+LABEL containers.bootc=1
+
 # lint bootc image, don't remove
 RUN bootc container lint
 
