@@ -171,7 +171,6 @@ declare -a packages=(
     glycin
     gnome-keyring
     greetd
-    greetd-agreety
     greetd-tuigreet
     libappindicator
     niri
