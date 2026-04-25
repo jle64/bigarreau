@@ -2,13 +2,12 @@ image_name := env("BUILD_IMAGE_NAME", "bigarreau")
 image_tag := env("BUILD_IMAGE_TAG", "latest")
 base_dir := env("BUILD_BASE_DIR", ".")
 filesystem := env("BUILD_FILESYSTEM", "btrfs")
-container_runtime := env("CONTAINER_RUNTIME", `command -v podman >/dev/null 2>&1 && echo podman || echo docker`)
 
 build-containerfile $image_name=image_name:
-    {{container_runtime}} build -f Containerfile -t "{{image_name}}:{{image_tag}}" .
+    podman build -f Containerfile -t "{{image_name}}:{{image_tag}}" .
 
 bootc *ARGS:
-    {{container_runtime}} run \
+    podman run \
         --rm --privileged --pid=host \
         -it \
         -v /sys/fs/selinux:/sys/fs/selinux \
