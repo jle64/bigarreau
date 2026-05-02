@@ -16,7 +16,6 @@ declare -a packages=(
     dbus-glib
     dracut
     efibootmgr
-    kmscon
     linux-firmware
     ostree
     shadow

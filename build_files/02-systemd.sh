@@ -6,15 +6,12 @@ echo "::group::===========================> Configure system"
 set -ouex pipefail
 
 # system
-systemctl disable \
-    getty@.service
 systemctl enable \
     apparmor.service \
     bluetooth.service \
     cups-browsed.service \
     cups.socket \
     firewalld.service \
-    kmsconvt@.service \
     greetd.service \
     NetworkManager.service \
     polkit.service \
