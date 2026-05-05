@@ -187,7 +187,6 @@ declare -a packages=(
     xdg-utils
 
     # ========> gpu
-    switcheroo
     switcheroo-control
 
     # ========> applications
