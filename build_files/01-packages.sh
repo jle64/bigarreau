@@ -9,7 +9,7 @@ declare -a packages=(
     # ========> system
     base
     bootc/uupd
-    cachyos/linux-cachyos-hardened-nvidia-open
+    cachyos/linux-cachyos-nvidia-open
     chaotic-aur/bootc
     cpio
     dbus
