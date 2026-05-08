@@ -32,7 +32,6 @@ declare -a packages=(
     gcc
     git
     glibc-locales
-    inetutils
     jq
     less
     lsof
