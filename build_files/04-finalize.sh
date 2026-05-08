@@ -35,18 +35,22 @@ ln -sT /var/usrlocal /usr/local
 
 # remove setuid on some binaries
 
-chmod u-s /usr/bin/chage
-chmod u-s /usr/bin/chfn
-chmod u-s /usr/bin/chsh
-chmod u-s /usr/bin/expiry
-chmod u-s /usr/bin/gpasswd
-chmod u-s /usr/bin/ksu
-chmod u-s /usr/bin/mount
-chmod u-s /usr/bin/mount.cifs
-chmod u-s /usr/bin/nvidia-modprobe
-chmod u-s /usr/bin/pkexec
-chmod u-s /usr/bin/sg
-chmod u-s /usr/bin/umount
-chmod u-s /usr/bin/unix_chkpwd
+chmod ug-s /usr/bin/chage
+chmod ug-s /usr/bin/chfn
+chmod ug-s /usr/bin/chsh
+chmod ug-s /usr/bin/expiry
+chmod ug-s /usr/bin/gpasswd
+chmod ug-s /usr/bin/groupmems
+chmod ug-s /usr/bin/ksu
+chmod ug-s /usr/bin/mount
+chmod ug-s /usr/bin/mount.cifs
+chmod ug-s /usr/bin/newgrp
+chmod ug-s /usr/bin/nvidia-modprobe
+chmod ug-s /usr/bin/pkexec
+chmod ug-s /usr/bin/sg
+chmod ug-s /usr/bin/umount
+chmod ug-s /usr/bin/unix_chkpwd
+chmod ug-s /usr/bin/wall
+chmod ug-s /usr/bin/write
 
 echo "::endgroup::"
