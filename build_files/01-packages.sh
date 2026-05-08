@@ -45,7 +45,6 @@ declare -a packages=(
     powertop
     python3
     strace
-    sudo
     tar
     unzip
     wget

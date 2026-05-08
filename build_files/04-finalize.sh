@@ -33,4 +33,20 @@ ln -sT var/opt /opt
 ln -sT var/home /home
 ln -sT /var/usrlocal /usr/local
 
+# remove setuid on some binaries
+
+chmod u-s /usr/bin/chage
+chmod u-s /usr/bin/chfn
+chmod u-s /usr/bin/chsh
+chmod u-s /usr/bin/expiry
+chmod u-s /usr/bin/gpasswd
+chmod u-s /usr/bin/ksu
+chmod u-s /usr/bin/mount
+chmod u-s /usr/bin/mount.cifs
+chmod u-s /usr/bin/nvidia-modprobe
+chmod u-s /usr/bin/pkexec
+chmod u-s /usr/bin/sg
+chmod u-s /usr/bin/umount
+chmod u-s /usr/bin/unix_chkpwd
+
 echo "::endgroup::"
