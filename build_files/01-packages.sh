@@ -111,6 +111,7 @@ declare -a packages=(
 
     # ========> network
     firewalld
+    inetutils
     libmtp
     networkmanager
     nss-mdns
