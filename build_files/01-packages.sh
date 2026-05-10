@@ -164,6 +164,7 @@ declare -a packages=(
     chaotic-aur/bibata-cursor-theme
     chaotic-aur/matugen-git
     chaotic-aur/noctalia-shell
+    chaotic-aur/dms-shell-git
     chaotic-aur/opentabletdriver
     cliphist
     evolution-data-server
