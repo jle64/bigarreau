@@ -161,7 +161,6 @@ declare -a packages=(
     accountsservice
     archlinux-xdg-menu
     brightnessctl
-    chaotic-aur/bibata-cursor-theme
     chaotic-aur/matugen-git
     chaotic-aur/noctalia-shell
     chaotic-aur/opentabletdriver
