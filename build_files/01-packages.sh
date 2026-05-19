@@ -72,8 +72,6 @@ declare -a packages=(
     apparmor
     bluez
     bluez-utils
-    cups
-    cups-browsed
     ddcutil
     intel-media-driver
     intel-ucode
@@ -88,10 +86,16 @@ declare -a packages=(
     xf86-video-amdgpu
     zram-generator
 
+    # ========> printing
+    ghostscript
+    cups
+    cups-browsed
+
     # ========> display & graphics
     mesa
     mesa-utils
     sunshine
+    switcheroo-control
     wayland-utils
     waypipe
     wayvr-git
@@ -183,12 +187,6 @@ declare -a packages=(
     xdg-user-dirs
     chaotic-aur/xdg-terminal-exec-git
     xdg-utils
-
-    # ========> gpu
-    switcheroo-control
-
-    # ========> printing
-    ghostscript
 
     # ========> applications
     chaotic-aur/bazaar-git
