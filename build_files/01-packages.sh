@@ -187,6 +187,9 @@ declare -a packages=(
     # ========> gpu
     switcheroo-control
 
+    # ========> printing
+    ghostscript
+
     # ========> applications
     chaotic-aur/bazaar-git
     chaotic-aur/distroshelf
@@ -198,6 +201,7 @@ declare -a packages=(
     gpu-screen-recorder
     kitty
     nautilus
+
 )
 
 pacman -Sy --noconfirm "${packages[@]}" >/dev/null
