@@ -28,8 +28,7 @@ systemctl preset \
 # user
 systemctl --global enable \
     flathub-user.service \
-    noctalia-shell.service \
-    opentabletdriver.service
+    noctalia-shell.service
     
 # user-preset
 systemctl preset --global \

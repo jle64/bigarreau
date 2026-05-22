@@ -167,7 +167,6 @@ declare -a packages=(
     brightnessctl
     chaotic-aur/matugen-git
     chaotic-aur/noctalia-shell
-    chaotic-aur/opentabletdriver
     cliphist
     evolution-data-server
     glycin
