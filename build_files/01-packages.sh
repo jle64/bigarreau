@@ -198,9 +198,6 @@ declare -a packages=(
     gpu-screen-recorder
     kitty
     nautilus
-
-    # ========> android
-    binder_linux-dkms
     waydroid
 )
 
