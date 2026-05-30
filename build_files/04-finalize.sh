@@ -34,7 +34,6 @@ ln -sT var/home /home
 ln -sT /var/usrlocal /usr/local
 
 # remove setuid on some binaries
-
 chmod ug-s /usr/bin/chage
 chmod ug-s /usr/bin/chfn
 chmod ug-s /usr/bin/chsh
@@ -46,7 +45,9 @@ chmod ug-s /usr/bin/mount
 chmod ug-s /usr/bin/mount.cifs
 chmod ug-s /usr/bin/newgrp
 chmod ug-s /usr/bin/nvidia-modprobe
-chmod ug-s /usr/bin/pkexec
+# needed by waydroid-helper
+rm /usr/bin/pkexec
+ln -s /usr/bin/run0 /usr/bin/pkexec
 chmod ug-s /usr/bin/sg
 chmod ug-s /usr/bin/umount
 chmod ug-s /usr/bin/unix_chkpwd
