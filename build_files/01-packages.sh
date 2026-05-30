@@ -190,6 +190,7 @@ declare -a packages=(
     # ========> applications
     chaotic-aur/bazaar-git
     chaotic-aur/distroshelf
+    chaotic-aur/valent-git
     cachyos/scx-manager
     cachyos/scx-scheds
     file-roller
