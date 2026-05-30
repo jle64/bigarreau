@@ -199,6 +199,9 @@ declare -a packages=(
     kitty
     nautilus
 
+    # ========> android
+    binder_linux-dkms
+    waydroid
 )
 
 pacman -Sy --noconfirm "${packages[@]}" >/dev/null
