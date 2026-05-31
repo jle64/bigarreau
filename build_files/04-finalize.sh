@@ -44,8 +44,8 @@ chmod ug-s /usr/bin/ksu
 chmod ug-s /usr/bin/mount
 chmod ug-s /usr/bin/mount.cifs
 chmod ug-s /usr/bin/newgrp
-chmod ug-s /usr/bin/nvidia-modprobe
-# needed by waydroid-helper
+# pkexec is needed by waydroid-helper
+# symlink it to run0 so we have one less setuid binary
 rm /usr/bin/pkexec
 ln -s /usr/bin/run0 /usr/bin/pkexec
 chmod ug-s /usr/bin/sg
