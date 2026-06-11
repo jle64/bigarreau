@@ -1,5 +1,5 @@
 # base image
-FROM docker.io/cachyos/cachyos-v3:latest AS final
+FROM archlinux:latest AS final
 
 # load in main build/system files
 COPY system_files /
