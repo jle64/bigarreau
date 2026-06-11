@@ -79,6 +79,7 @@ declare -a packages=(
     lm_sensors
     libva-intel-driver
     libva-mesa-driver
+    usb_modeswitch
     vpl-gpu-rt
     vulkan-icd-loader
     vulkan-intel
