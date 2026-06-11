@@ -1,6 +1,6 @@
 NAME="Bigarreau"
 PRETTY_NAME="Bigarreau"
-ID=arch
+ID=bigarreau
 BUILD_ID=rolling
 LOGO=archlinux-logo
 ANSI_COLOR="38;2;23;147;209"
