@@ -199,9 +199,6 @@ declare -a packages=(
     gpu-screen-recorder
     kitty
     nautilus
-    waydroid-git
-    waydroid-helper
-    waydroid-script-git
 )
 
 pacman -Sy --noconfirm "${packages[@]}" >/dev/null
