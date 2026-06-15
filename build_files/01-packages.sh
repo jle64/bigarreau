@@ -123,6 +123,7 @@ declare -a packages=(
     samba
     smbclient
     tailscale
+    wireguard-tools
 
     # ========> containers
     distrobox
