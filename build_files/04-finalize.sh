@@ -34,24 +34,10 @@ ln -sT var/home /home
 ln -sT /var/usrlocal /usr/local
 
 # remove setuid on some binaries
-chmod ug-s /usr/bin/chage
-chmod ug-s /usr/bin/chfn
-chmod ug-s /usr/bin/chsh
-chmod ug-s /usr/bin/expiry
-chmod ug-s /usr/bin/gpasswd
-chmod ug-s /usr/bin/groupmems
-chmod ug-s /usr/bin/ksu
-chmod ug-s /usr/bin/mount
-chmod ug-s /usr/bin/mount.cifs
-chmod ug-s /usr/bin/newgrp
-# pkexec is needed by waydroid-helper
-# symlink it to run0 so we have one less setuid binary
-rm /usr/bin/pkexec
-ln -s /usr/bin/run0 /usr/bin/pkexec
-chmod ug-s /usr/bin/sg
-chmod ug-s /usr/bin/umount
-chmod ug-s /usr/bin/unix_chkpwd
-chmod ug-s /usr/bin/wall
-chmod ug-s /usr/bin/write
+for bin in chage chfn chsh expiry gpasswd groupmems ksu mount mount.cifs newgrp sg umount unix_chkpwd wall write; do
+    if [ -f "/usr/bin/$bin" ]; then
+        chmod ug-s "/usr/bin/$bin"
+    fi
+done
 
 echo "::endgroup::"
