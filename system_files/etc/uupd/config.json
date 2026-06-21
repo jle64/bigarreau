@@ -8,12 +8,6 @@
             "net-max-bytes": 700000
         }
     },
-    "logging": {
-        "file": "-",
-        "json": false,
-        "level": "debug",
-        "quiet": false
-    },
     "modules": {
         "brew": {
             "cellar": "/home/linuxbrew/.linuxbrew/Cellar",
