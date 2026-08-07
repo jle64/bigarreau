@@ -167,8 +167,6 @@ declare -a packages=(
     accountsservice
     archlinux-xdg-menu
     brightnessctl
-    chaotic-aur/matugen-git
-    chaotic-aur/noctalia-shell
     cliphist
     evolution-data-server
     glycin
@@ -178,20 +176,16 @@ declare -a packages=(
     libappindicator
     niri
     orca
-    polkit-gnome
     shared-mime-info
     tuned
-    tuned-ppd
     wlsunset
     xdg-desktop-portal
     xdg-desktop-portal-gnome
     xdg-user-dirs
-    chaotic-aur/xdg-terminal-exec-git
     xdg-utils
 
     # ========> applications
-    chaotic-aur/bazaar-git
-    chaotic-aur/distroshelf
+    bazaar
     chaotic-aur/valent-git
     cachyos/scx-manager
     cachyos/scx-scheds

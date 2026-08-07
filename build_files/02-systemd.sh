@@ -17,7 +17,6 @@ systemctl enable \
     polkit.service \
     rechunker-group-fix.service \
     refresh-font-cache.service \
-    tuned-ppd.service \
     tuned.service \
     uupd.timer
 
@@ -26,15 +25,7 @@ systemctl preset \
     systemd-resolved.service
 
 # user
-systemctl --global enable \
-    flathub-user.service \
-    noctalia-shell.service
-    
-# user-preset
-systemctl preset --global \
-    flathub-user.service \
-    noctalia-shell.service
+systemctl --global enable flathub-user.service 
 
-# user-wants for Niri
-systemctl add-wants --global niri.service \
-    noctalia-shell.service
+# user-preset
+systemctl preset --global flathub-user.service
