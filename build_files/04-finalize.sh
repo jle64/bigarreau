@@ -40,4 +40,7 @@ for bin in chage chfn chsh expiry gpasswd groupmems ksu mount mount.cifs newgrp 
     fi
 done
 
+# Replace official pkexec with our run0 wrapper
+ln -sf /usr/libexec/pkexec-wrapper /usr/bin/pkexec
+
 echo "::endgroup::"

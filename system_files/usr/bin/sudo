@@ -1,0 +1,62 @@
+#!/bin/bash
+# Wrapper to redirect basic sudo calls to systemd's run0
+
+declare -a RUN0_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -u|--user)
+            RUN0_ARGS+=("--user=$2")
+            shift 2
+            ;;
+        -u*)
+            RUN0_ARGS+=("--user=${1#-u}")
+            shift
+            ;;
+        -i|--login)
+            RUN0_ARGS+=("-i")
+            shift
+            ;;
+        -s|--shell)
+            RUN0_ARGS+=("--via-shell")
+            shift
+            ;;
+        -n|--non-interactive)
+            RUN0_ARGS+=("--no-ask-password")
+            shift
+            ;;
+        -H|--set-home)
+            RUN0_ARGS+=("--chdir=~")
+            shift
+            ;;
+        -h|--help)
+            RUN0_ARGS+=("-h")
+            shift
+            ;;
+        -V|--version)
+            RUN0_ARGS+=("-V")
+            shift
+            ;;
+        -E|--preserve-env|-k|--reset-timestamp|-S|--stdin)
+            # These options don't have a direct/safe equivalent in run0.
+            # We silently ignore them to avoid breaking scripts (like AUR helpers, etc.)
+            shift
+            ;;
+        --)
+            # End of options
+            shift
+            break
+            ;;
+        -*)
+            # Unmapped options are passed through (might cause run0 to error)
+            RUN0_ARGS+=("$1")
+            shift
+            ;;
+        *)
+            # First non-option argument, stop parsing and pass the rest
+            break
+            ;;
+    esac
+done
+
+exec run0 "${RUN0_ARGS[@]}" "$@"
