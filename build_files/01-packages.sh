@@ -122,6 +122,7 @@ declare -a packages=(
     nss-mdns
     samba
     smbclient
+    systemd-resolvconf
     tailscale
     wireguard-tools
 
