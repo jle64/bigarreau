@@ -123,7 +123,6 @@ declare -a packages=(
     samba
     smbclient
     systemd-resolvconf
-    tailscale
     wireguard-tools
 
     # ========> containers
