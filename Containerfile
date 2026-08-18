@@ -18,7 +18,7 @@ RUN bootc container lint
 
 # rechunk image
 FROM quay.io/coreos/chunkah AS chunkah
-ARG CHUNKAH_CONFIG_STR="{}"
+ARG CHUNKAH_CONFIG_STR='{"config": {}}'
 RUN --mount=from=final,src=/,target=/chunkah,ro \
     --mount=type=bind,target=/run/src,rw \
         chunkah build --skip-special-files > /run/src/out.ociarchive
