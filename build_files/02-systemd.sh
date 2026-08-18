@@ -17,8 +17,7 @@ systemctl enable \
     polkit.service \
     rechunker-group-fix.service \
     refresh-font-cache.service \
-    tuned.service \
-    uupd.timer
+    tuned.service
 
 # system-preset
 systemctl preset \

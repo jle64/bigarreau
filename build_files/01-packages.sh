@@ -8,7 +8,6 @@ set -ouex pipefail
 declare -a packages=(
     # ========> system
     base
-    bootc/uupd
     cachyos/linux-cachyos-nvidia-open
     chaotic-aur/bootc
     cpio
