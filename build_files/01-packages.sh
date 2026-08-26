@@ -169,12 +169,12 @@ declare -a packages=(
     cliphist
     evolution-data-server
     glycin
-    gnome-keyring
     greetd
     greetd-tuigreet
     libappindicator
     niri
     orca
+    oo7
     shared-mime-info
     tuned
     wlsunset
