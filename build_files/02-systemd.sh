@@ -23,6 +23,9 @@ systemctl enable \
 systemctl preset \
     systemd-resolved.service
 
+# mask incompatible services
+systemctl mask systemd-remount-fs.service
+
 # user
 systemctl --global enable flathub-user.service 
 

@@ -143,7 +143,6 @@ declare -a packages=(
     librsvg
     mpv-mpris
     playerctl
-    plymouth
 
     # ========> fonts
     gnu-free-fonts

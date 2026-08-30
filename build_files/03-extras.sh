@@ -6,9 +6,6 @@ set -ouex pipefail
 # configure useradd defaults
 sed -i 's|^HOME=.*|HOME=/var/home|' "/etc/default/useradd"
 
-# set plymouth theme
-sed -i 's/bgrt/red_loader/g' /usr/share/plymouth/plymouthd.defaults
-
 # remove any .pacnew files
 find /etc/ -name "*.pacnew" -type f -delete
 
