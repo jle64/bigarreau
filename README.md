@@ -1,8 +1,8 @@
 # Bigarreau
 
-This is my personal fork of Tartaria (tartaria-dev/tartaria), you probably want to look into that instead.
+This is my personal fork of Tartaria (tartaria-dev/tartaria).
 
-Thanks to the Tartaria author for doing all the work on this!
+Thanks to the Tartaria author for all their work!
 
 ## Rebasing
 
