@@ -175,7 +175,6 @@ declare -a packages=(
     archlinux-xdg-menu
     brightnessctl
     cliphist
-    evolution-data-server
     glycin
     greetd
     greetd-tuigreet
