@@ -25,25 +25,32 @@ declare -a packages=(
     # ========> cli
     bash
     bash-completion
+    bat
     binutils
     curl
+    fd
     fish
     gcc
     git
     glibc-locales
+    htop
     jq
     less
     lsof
     man-db
     man-pages
     man-pages-utils
+    ncdu
     neovim
     nix
     openssh
     powertop
     python3
+    ripgrep
     strace
+    sysstat
     tar
+    tree
     unzip
     wget
 
@@ -114,9 +121,11 @@ declare -a packages=(
     wireplumber
 
     # ========> network
+    doggo
     firewalld
     inetutils
     libmtp
+    mtr
     networkmanager
     nss-mdns
     samba
