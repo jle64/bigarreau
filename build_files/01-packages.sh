@@ -180,6 +180,8 @@ declare -a packages=(
     greetd-tuigreet
     libappindicator
     niri
+    noctalia
+    noctalia-greeter
     orca
     oo7
     shared-mime-info
