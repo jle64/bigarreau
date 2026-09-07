@@ -4,7 +4,16 @@ base_dir := env("BUILD_BASE_DIR", ".")
 filesystem := env("BUILD_FILESYSTEM", "btrfs")
 
 build-containerfile $image_name=image_name:
-    podman build -f Containerfile -t "{{image_name}}:{{image_tag}}" .
+    podman build --skip-unused-stages=false --volume "$PWD":/src -f Containerfile -t "{{image_name}}:{{image_tag}}" .
+
+build-iso $image_name=image_name $image_tag=image_tag: (build-containerfile image_name)
+    #!/usr/bin/env bash
+    set -ouex pipefail
+    if [ ! -d .iso-builder ] ; then
+        git clone https://github.com/tartaria-dev/iso-builder.git .iso-builder
+        git -C .iso-builder checkout 786cc8f014f885287aae371ce7dffc2f08a27be1
+    fi
+    sudo env "PATH=$PATH" ./.iso-builder/start.sh "{{image_name}}:{{image_tag}}" ./out bigarreau
 
 bootc *ARGS:
     podman run \

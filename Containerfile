@@ -1,5 +1,5 @@
 # base image
-FROM archlinux:latest AS final
+FROM docker.io/cachyos/cachyos-v3:latest AS final
 
 # load in main build/system files
 COPY system_files /
@@ -20,9 +20,8 @@ RUN bootc container lint
 FROM quay.io/coreos/chunkah AS chunkah
 ARG CHUNKAH_CONFIG_STR='{"config": {}}'
 RUN --mount=from=final,src=/,target=/chunkah,ro \
-    --mount=type=bind,target=/run/src,rw \
-        chunkah build --skip-special-files > /run/src/out.ociarchive
+    chunkah build --skip-special-files --max-layers 128 --output oci:/src/out
 
 # finalize
-FROM oci-archive:out.ociarchive
+FROM oci:out
 ENTRYPOINT ["git"]

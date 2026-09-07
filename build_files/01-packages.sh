@@ -8,7 +8,8 @@ set -ouex pipefail
 declare -a packages=(
     # ========> system
     base
-    cachyos/linux-cachyos-nvidia-open
+    linux-cachyos
+    linux-cachyos-nvidia-open
     bootc/bootc
     bootupd
     cpio
@@ -18,6 +19,8 @@ declare -a packages=(
     efibootmgr
     linux-firmware
     ostree
+    scx-manager
+    scx-scheds
     shadow
     shim
     skopeo
@@ -89,8 +92,6 @@ declare -a packages=(
     usb_modeswitch
     vpl-gpu-rt
     vulkan-icd-loader
-    vulkan-intel
-    vulkan-radeon
     xf86-video-amdgpu
     zram-generator
 
@@ -100,7 +101,6 @@ declare -a packages=(
     cups-browsed
 
     # ========> display & graphics
-    mesa
     mesa-utils
     sunshine
     switcheroo-control
@@ -193,8 +193,6 @@ declare -a packages=(
 
     # ========> applications
     bazaar
-    cachyos/scx-manager
-    cachyos/scx-scheds
     file-roller
     gnome-text-editor
     gpu-screen-recorder
