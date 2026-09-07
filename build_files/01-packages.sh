@@ -106,7 +106,6 @@ declare -a packages=(
     switcheroo-control
     wayland-utils
     waypipe
-    wayvr-git
     xwayland-satellite
 
     # ========> audio
