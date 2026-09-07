@@ -32,13 +32,6 @@ pacman -U 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-keyring-202403
 pacman -U 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-mirrorlist-27-1-any.pkg.tar.zst' --noconfirm >/dev/null
 echo -e '\n[cachyos]\nInclude = /etc/pacman.d/cachyos-mirrorlist' >> /etc/pacman.conf
 
-# add chaotic AUR repo
-pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-pacman-key --lsign-key 3056513887B78AEB
-pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' --noconfirm >/dev/null
-pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' --noconfirm >/dev/null
-echo -e '\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist' >> /etc/pacman.conf
-
 # add heck's bootc repo
 pacman-key --recv-key 5DE6BF3EBC86402E7A5C5D241FA48C960F9604CB --keyserver keyserver.ubuntu.com
 pacman-key --lsign-key 5DE6BF3EBC86402E7A5C5D241FA48C960F9604CB

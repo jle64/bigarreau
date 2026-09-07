@@ -10,6 +10,7 @@ declare -a packages=(
     base
     cachyos/linux-cachyos-nvidia-open
     bootc/bootc
+    bootupd
     cpio
     dbus
     dbus-glib
@@ -181,7 +182,6 @@ declare -a packages=(
     libappindicator
     niri
     noctalia
-    noctalia-greeter
     orca
     oo7
     shared-mime-info
@@ -194,12 +194,12 @@ declare -a packages=(
 
     # ========> applications
     bazaar
-    chaotic-aur/valent-git
     cachyos/scx-manager
     cachyos/scx-scheds
     file-roller
     gnome-text-editor
     gpu-screen-recorder
+    kdeconnect
     kitty
     nautilus
 )
