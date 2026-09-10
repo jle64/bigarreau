@@ -128,6 +128,7 @@ declare -a packages=(
     mtr
     networkmanager
     nss-mdns
+    opensnitch
     samba
     smbclient
     systemd-resolvconf
