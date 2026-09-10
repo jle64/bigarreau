@@ -1,5 +1,4 @@
 cosign.key
 .idea
 *.img
-.iso-builder/
 out/

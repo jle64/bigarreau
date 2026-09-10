@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://www.schemastore.org/github-action.json
+
+name: "Build Tartaria ISO Action"
+description: "Builds a Tartaria ISO from a container image using the start.sh script."
+inputs:
+  container-image:
+    description: "Container image to use for the squashfs rootfs"
+    required: true
+  iso-path:
+    description: "Path to move the resulting ISO to"
+    required: true
+  iso-name:
+    description: "Name to use for the ISO"
+    required: true
+
+outputs:
+  iso-path:
+    description: "Path to the resulting ISO file"
+    value: ${{ steps.move-iso.outputs.iso-path }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Build ISO
+      run: |
+        sudo ${{ github.action_path }}/start.sh ${{ inputs.container-image }} ${{ inputs.iso-path }} ${{ inputs.iso-name }}
+        
+        mkdir -p ${{ inputs.iso-path }}
+        sudo chown -R $(whoami):$(whoami) ${{ inputs.iso-path }}
+        ls -lah ${{ inputs.iso-path }}
+      shell:
+        bash

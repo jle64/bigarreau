@@ -1,0 +1,5 @@
+vmlinuz
+initramfs.img
+*.tmp
+/out
+*.iso

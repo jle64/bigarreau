@@ -72,6 +72,8 @@ declare -a packages=(
     mtools
     nilfs-utils
     ntfs-3g
+    parted
+    sshfs
     udftools
     udisks2
     xfsprogs
@@ -137,6 +139,7 @@ declare -a packages=(
     # ========> containers
     distrobox
     flatpak
+    fuse-overlayfs
     podman
     podman-compose
 
