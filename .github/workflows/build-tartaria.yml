@@ -113,24 +113,24 @@ jobs:
         with:
           containerfiles: |
             ./Containerfile
-          image: ${{ env.IMAGE_NAME }}-base
+          image: localhost/${{ env.IMAGE_NAME }}-base
           tags: latest
           labels: ${{ steps.metadata.outputs.labels }}
 
       - name: Rechunk image
         run: |
           df -h
-          IMAGE_REF="${{ steps.build_base.outputs.image }}:latest"
+          IMAGE_REF="localhost/${{ env.IMAGE_NAME }}-base:latest"
           podman inspect $IMAGE_REF | jq -c .[0] > config.json
           
           buildah build --skip-unused-stages=false --from $IMAGE_REF \
             --build-arg CHUNKAH_CONFIG_STR="$(cat config.json)" \
             --build-arg CHUNKAH_ARGS="--skip-special-files --max-layers 128" \
-            -t ${{ env.IMAGE_NAME }}:latest \
+            -t localhost/${{ env.IMAGE_NAME }}:latest \
             https://github.com/coreos/chunkah/releases/download/v0.6.0/Containerfile.splitter
           
           for tag in ${{ steps.metadata.outputs.tags }}; do
-            podman tag ${{ env.IMAGE_NAME }}:latest ${{ env.IMAGE_NAME }}:$tag
+            podman tag localhost/${{ env.IMAGE_NAME }}:latest ${{ env.IMAGE_NAME }}:$tag
           done
 
       - name: Login to GHCR
