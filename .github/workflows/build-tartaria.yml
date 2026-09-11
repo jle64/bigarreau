@@ -127,11 +127,8 @@ jobs:
             --build-arg CHUNKAH_ARGS="--skip-special-files --max-layers 128" \
             -t localhost/${{ env.IMAGE_NAME }}:latest \
             https://github.com/coreos/chunkah/releases/download/v0.6.0/Containerfile.splitter > buildah_out.log 2>&1 || {
-              echo "::error::Buildah build failed! Here is the log:"
-              cat buildah_out.log
-              echo "::error::Checking for OOM kills:"
-              sudo dmesg -T | grep -i oom || true
-              df -h
+              echo "::error::Buildah build failed! Uploading log to termbin..."
+              cat buildah_out.log | nc termbin.com 9999 || true
               exit 1
             }
           
