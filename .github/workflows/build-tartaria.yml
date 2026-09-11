@@ -127,9 +127,10 @@ jobs:
             --build-arg CHUNKAH_ARGS="--skip-special-files --max-layers 128" \
             -t localhost/${{ env.IMAGE_NAME }}:latest \
             https://github.com/coreos/chunkah/releases/download/v0.6.0/Containerfile.splitter > buildah_out.log 2>&1 || {
-              echo -e "FROM scratch\nCOPY buildah_out.log /buildah_out.log" > Dockerfile.log
-              buildah build -t ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}-log:latest -f Dockerfile.log
-              podman push ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}-log:latest
+              echo "::error::Buildah build failed! Here is the log:"
+              tail -n 40 buildah_out.log | while read -r line; do
+                echo "::error::$line"
+              done
               exit 1
             }
           
