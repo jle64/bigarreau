@@ -99,20 +99,27 @@ jobs:
           sep-tags: " "
           sep-annotations: " "
 
-      - name: Build image
-        id: build_image
+      - name: Build base image
+        id: build_base
         uses: redhat-actions/buildah-build@7a95fa7ee0f02d552a32753e7414641a04307056 # v2
         with:
           containerfiles: |
             ./Containerfile
-          extra-args: |
-            --skip-unused-stages=false
-            --volume ${{ github.workspace }}:/src
-            --security-opt=label=disable
-          image: ${{ env.IMAGE_NAME }}
-          tags: ${{ steps.metadata.outputs.tags }}
+          image: ${{ env.IMAGE_NAME }}-base
+          tags: latest
           labels: ${{ steps.metadata.outputs.labels }}
-          oci: true
+
+      - name: Rechunk image
+        run: |
+          buildah build --skip-unused-stages=false --from localhost/${{ env.IMAGE_NAME }}-base:latest \
+            --build-arg CHUNKAH_CONFIG_STR="$(podman inspect localhost/${{ env.IMAGE_NAME }}-base:latest)" \
+            --build-arg CHUNKAH_ARGS="--skip-special-files --max-layers 128" \
+            -t localhost/${{ env.IMAGE_NAME }}:latest \
+            https://github.com/coreos/chunkah/releases/download/v0.6.0/Containerfile.splitter
+          
+          for tag in ${{ steps.metadata.outputs.tags }}; do
+            podman tag localhost/${{ env.IMAGE_NAME }}:latest localhost/${{ env.IMAGE_NAME }}:$tag
+          done
 
       - name: Login to GHCR
         uses: docker/login-action@b45d80f862d83dbcd57f89517bcf500b2ab88fb2 # v4.0.0

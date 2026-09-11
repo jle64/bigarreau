@@ -15,13 +15,4 @@ RUN --mount=type=tmpfs,dst=/tmp \
 
 # lint bootc image, don't remove
 RUN bootc container lint
-
-# rechunk image
-FROM quay.io/coreos/chunkah AS chunkah
-ARG CHUNKAH_CONFIG_STR='{"config": {}}'
-RUN --mount=from=final,src=/,target=/chunkah,ro \
-    chunkah build --skip-special-files --max-layers 128 --output oci:/src/out
-
-# finalize
-FROM oci:out
 ENTRYPOINT ["git"]
