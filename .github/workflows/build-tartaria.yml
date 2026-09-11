@@ -128,7 +128,7 @@ jobs:
             -t localhost/${{ env.IMAGE_NAME }}:latest \
             https://github.com/coreos/chunkah/releases/download/v0.6.0/Containerfile.splitter > buildah_out.log 2>&1 || {
               echo "::error::Buildah build failed! Here is the log:"
-              tail -n 40 buildah_out.log | while read -r line; do
+              grep -v -E "Copying blob|Writing manifest|Copying config|Getting image source|Trying to pull" buildah_out.log | tail -n 40 | while read -r line; do
                 echo "::error::$line"
               done
               exit 1
