@@ -119,15 +119,25 @@ jobs:
 
       - name: Rechunk image
         run: |
-          df -h
-          IMAGE_REF="localhost/${{ env.IMAGE_NAME }}-base:latest"
-          podman inspect $IMAGE_REF | jq -c .[0] > config.json
+          echo "## Podman Images" >> $GITHUB_STEP_SUMMARY
+          podman images >> $GITHUB_STEP_SUMMARY
+          
+          IMAGE_REF="${{ steps.build_base.outputs.image }}:latest"
+          echo "IMAGE_REF: $IMAGE_REF" >> $GITHUB_STEP_SUMMARY
+          
+          podman inspect $IMAGE_REF | jq -c .[0] > config.json || true
           
           buildah build --skip-unused-stages=false --from $IMAGE_REF \
             --build-arg CHUNKAH_CONFIG_STR="$(cat config.json)" \
             --build-arg CHUNKAH_ARGS="--skip-special-files --max-layers 128" \
             -t localhost/${{ env.IMAGE_NAME }}:latest \
-            https://github.com/coreos/chunkah/releases/download/v0.6.0/Containerfile.splitter
+            https://github.com/coreos/chunkah/releases/download/v0.6.0/Containerfile.splitter > buildah_out.log 2>&1 || {
+              echo "## Buildah Error" >> $GITHUB_STEP_SUMMARY
+              echo '```' >> $GITHUB_STEP_SUMMARY
+              tail -n 50 buildah_out.log >> $GITHUB_STEP_SUMMARY
+              echo '```' >> $GITHUB_STEP_SUMMARY
+              exit 1
+            }
           
           for tag in ${{ steps.metadata.outputs.tags }}; do
             podman tag localhost/${{ env.IMAGE_NAME }}:latest ${{ env.IMAGE_NAME }}:$tag
