@@ -113,7 +113,7 @@ jobs:
         with:
           containerfiles: |
             ./Containerfile
-          image: localhost/${{ env.IMAGE_NAME }}-base
+          image: ${{ env.IMAGE_NAME }}-base
           tags: latest
           labels: ${{ steps.metadata.outputs.labels }}
 
@@ -122,10 +122,16 @@ jobs:
           echo "## Podman Images" >> $GITHUB_STEP_SUMMARY
           podman images >> $GITHUB_STEP_SUMMARY
           
-          IMAGE_REF="${{ steps.build_base.outputs.image }}:latest"
+          IMAGE_REF="localhost/${{ env.IMAGE_NAME }}-base:latest"
           echo "IMAGE_REF: $IMAGE_REF" >> $GITHUB_STEP_SUMMARY
           
-          podman inspect $IMAGE_REF | jq -c .[0] > config.json || true
+          podman inspect $IMAGE_REF | jq -c .[0] > config.json || {
+            echo "Failed to inspect $IMAGE_REF" >> $GITHUB_STEP_SUMMARY
+            # Try with buildah inspect just in case to see the output format
+            buildah inspect $IMAGE_REF > buildah_config.json || true
+            cat buildah_config.json >> $GITHUB_STEP_SUMMARY
+            exit 1
+          }
           
           buildah build --skip-unused-stages=false --from $IMAGE_REF \
             --build-arg CHUNKAH_CONFIG_STR="$(cat config.json)" \
