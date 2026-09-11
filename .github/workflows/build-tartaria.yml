@@ -122,7 +122,9 @@ jobs:
           IMAGE_REF="localhost/${{ env.IMAGE_NAME }}-base:latest"
           podman inspect $IMAGE_REF | jq -c .[0] > config.json || true
           
-          buildah build --skip-unused-stages=false --from $IMAGE_REF \
+          buildah build --skip-unused-stages=false \
+            -v ${{ github.workspace }}:/run/src --security-opt=label=disable \
+            --from $IMAGE_REF \
             --build-arg CHUNKAH_CONFIG_STR="$(cat config.json)" \
             --build-arg CHUNKAH_ARGS="--skip-special-files --max-layers 128" \
             -t localhost/${{ env.IMAGE_NAME }}:latest \
