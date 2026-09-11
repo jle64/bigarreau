@@ -194,6 +194,7 @@ declare -a packages=(
     xdg-desktop-portal-gnome
     xdg-user-dirs
     xdg-utils
+    zenity
 
     # ========> applications
     bazaar
