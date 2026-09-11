@@ -58,7 +58,15 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v5
 
       - name: Remove unecessary software
-        uses: hastd/free-disk-space@v0.1.2
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
 
       - name: Get current date
         id: date
@@ -111,9 +119,12 @@ jobs:
 
       - name: Rechunk image
         run: |
+          df -h
           IMAGE_REF="${{ steps.build_base.outputs.image }}:latest"
+          podman inspect $IMAGE_REF | jq -c .[0] > config.json
+          
           buildah build --skip-unused-stages=false --from $IMAGE_REF \
-            --build-arg CHUNKAH_CONFIG_STR="$(podman inspect $IMAGE_REF)" \
+            --build-arg CHUNKAH_CONFIG_STR="$(cat config.json)" \
             --build-arg CHUNKAH_ARGS="--skip-special-files --max-layers 128" \
             -t ${{ env.IMAGE_NAME }}:latest \
             https://github.com/coreos/chunkah/releases/download/v0.6.0/Containerfile.splitter
