@@ -206,4 +206,4 @@ declare -a packages=(
     nautilus
 )
 
-pacman -Sy --noconfirm "${packages[@]}" >/dev/null
+pacman -S --needed --noconfirm "${packages[@]}"

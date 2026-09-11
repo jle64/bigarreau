@@ -25,6 +25,9 @@ sed -i \
 pacman-key --init
 pacman-key --populate archlinux cachyos
 
+# Use the reliable master mirror for cachyos
+echo "Server = https://mirror.cachyos.org/repo/\$arch_v3/\$repo" > /etc/pacman.d/cachyos-v3-mirrorlist
+
 # cachy builds need networking disabled sandboxing in pacman
 sed -i '/^\[options\]/a DisableSandboxNetwork' /etc/pacman.conf
 
@@ -34,6 +37,6 @@ pacman-key --lsign-key 5DE6BF3EBC86402E7A5C5D241FA48C960F9604CB
 echo -e '\n[bootc]\nSigLevel = Required\nServer=https://github.com/hecknt/arch-bootc-pkgs/releases/download/$repo' >> /etc/pacman.conf
 
 # perform system update
-pacman -Syu --noconfirm >/dev/null
+pacman -Syu --noconfirm
 
 echo "::endgroup::"
