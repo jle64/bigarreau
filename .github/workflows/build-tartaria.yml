@@ -119,29 +119,17 @@ jobs:
 
       - name: Rechunk image
         run: |
-          echo "## Podman Images" >> $GITHUB_STEP_SUMMARY
-          podman images >> $GITHUB_STEP_SUMMARY
-          
           IMAGE_REF="localhost/${{ env.IMAGE_NAME }}-base:latest"
-          echo "IMAGE_REF: $IMAGE_REF" >> $GITHUB_STEP_SUMMARY
-          
-          podman inspect $IMAGE_REF | jq -c .[0] > config.json || {
-            echo "Failed to inspect $IMAGE_REF" >> $GITHUB_STEP_SUMMARY
-            # Try with buildah inspect just in case to see the output format
-            buildah inspect $IMAGE_REF > buildah_config.json || true
-            cat buildah_config.json >> $GITHUB_STEP_SUMMARY
-            exit 1
-          }
+          podman inspect $IMAGE_REF | jq -c .[0] > config.json || true
           
           buildah build --skip-unused-stages=false --from $IMAGE_REF \
             --build-arg CHUNKAH_CONFIG_STR="$(cat config.json)" \
             --build-arg CHUNKAH_ARGS="--skip-special-files --max-layers 128" \
             -t localhost/${{ env.IMAGE_NAME }}:latest \
             https://github.com/coreos/chunkah/releases/download/v0.6.0/Containerfile.splitter > buildah_out.log 2>&1 || {
-              echo "## Buildah Error" >> $GITHUB_STEP_SUMMARY
-              echo '```' >> $GITHUB_STEP_SUMMARY
-              tail -n 50 buildah_out.log >> $GITHUB_STEP_SUMMARY
-              echo '```' >> $GITHUB_STEP_SUMMARY
+              echo -e "FROM scratch\nCOPY buildah_out.log /buildah_out.log" > Dockerfile.log
+              buildah build -t ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}-log:latest -f Dockerfile.log
+              podman push ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}-log:latest
               exit 1
             }
           
