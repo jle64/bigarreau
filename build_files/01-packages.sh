@@ -7,9 +7,8 @@ set -ouex pipefail
 
 declare -a packages=(
     # ========> system
+    apparmor
     base
-    linux-cachyos
-    linux-cachyos-nvidia-open
     bootc/bootc
     bootupd
     cpio
@@ -17,6 +16,8 @@ declare -a packages=(
     dbus-glib
     dracut
     efibootmgr
+    linux-cachyos
+    linux-cachyos-nvidia-open
     linux-firmware
     ostree
     scx-manager
@@ -37,26 +38,31 @@ declare -a packages=(
     gcc
     git
     glibc-locales
-    htop
     jq
     less
-    lsof
     man-db
     man-pages
     man-pages-utils
-    ncdu
     neovim
     nix
     openssh
-    powertop
     python3
     ripgrep
-    strace
-    sysstat
     tar
     tree
     unzip
     wget
+
+    # ========> diag
+    atop
+    bpftrace
+    htop
+    lsof
+    ltrace
+    ncdu
+    powertop
+    strace
+    sysstat
 
     # ========> filesystems
     btrfs-progs
@@ -81,7 +87,6 @@ declare -a packages=(
     # ========> hardware
     acpid
     amd-ucode
-    apparmor
     bluez
     bluez-utils
     ddcutil
@@ -98,11 +103,11 @@ declare -a packages=(
     zram-generator
 
     # ========> printing
-    ghostscript
     cups
     cups-browsed
 
     # ========> display & graphics
+    brightnessctl
     mesa-utils
     sunshine
     switcheroo-control
@@ -158,26 +163,14 @@ declare -a packages=(
     playerctl
 
     # ========> fonts
-    gnu-free-fonts
-    gsfonts
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
     noto-fonts-extra
-    ttf-arphic-uming
-    ttf-baekmuk
-    ttf-croscore
-    ttf-dejavu
-    ttf-droid
-    ttf-ibm-plex
-    ttf-overpass
     unicode-emoji
-    wqy-microhei
 
     # ========> interface
     accountsservice
-    archlinux-xdg-menu
-    brightnessctl
     cliphist
     glycin
     greetd
